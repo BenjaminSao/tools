@@ -21,6 +21,6 @@ export class HomeViewModel extends PageViewModel
     
     public gotoFirestore(): void
     {
-        this._navigationService.navigate(Routes.firestore)
+        this._navigationService.navigate(Routes.firestore);
     }
 }

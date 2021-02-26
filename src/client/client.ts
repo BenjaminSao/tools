@@ -10,6 +10,7 @@ import { pages } from "./pages/pages";
 import { ComponentInstaller, Registry } from "@nivinjoseph/n-ject";
 import { given } from "@nivinjoseph/n-defensive";
 import { components } from "./components/components";
+import { FirebaseService } from "../sdk/server/firebase-service";
 
 console.log(Vue);
 
@@ -19,6 +20,7 @@ class Installer implements ComponentInstaller
     public install(registry: Registry): void
     {
         given(registry, "registry").ensureHasValue().ensureIsObject();
+        registry.registerSingleton("FirebaseService", FirebaseService);
         
         // Types of dependencies: 
         // registerSingleton: Singleton, one instance of the dependency class through out the lifecycle of the app.

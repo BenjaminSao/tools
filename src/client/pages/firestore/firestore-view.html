@@ -1,14 +1,26 @@
 <div class="firestore">
-    <body>
-      <section class="section">
-        <div class="container">
-          <div class="heading">
-            <h1 class="title">Section</h1>
-            <h2 class="subtitle">
-              A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading
-            </h2>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <!-- Adding Data -->
+          <div class="column">
+            <div class="box">
+              <h1 class="is-size-3">Add Data</h1>
+              <div class="field">
+                <label class="label">Text</label>
+                <input type="text" class="input">
+              </div>
+              <div class="field">
+                <div class="control">
+                  <button class="button is-primary" @click="addData">
+                    Send
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
+          <div class="column"></div>
         </div>
-      </section>
-    </body>
+      </div>
+    </section>
 </div>
