@@ -4,7 +4,6 @@ import "firebase/firestore";
 export class FirebaseService
 {
     private readonly _db: firebase.firestore.Firestore;
-     
     
     public constructor()
     {
@@ -19,19 +18,26 @@ export class FirebaseService
         });
         
         this._db = firebase.firestore();
+        
     }
     
-    public async addData(): Promise<void>
+    public async addData(text: string): Promise<void>
     {
-        try
-        {
-            await this._db.collection("collection").doc().set({
-                data: "hello"
+        await this._db.collection("collection").doc().set({
+                text: text
             });
-        }
-        catch (e)
-        {
-            
-        }
+    }
+    
+    public async fetchAllData(): Promise<Array<String>>
+    {
+        const dbData = new Array;
+        const docs = await this._db.collection("collection").get();
+            docs.forEach(t =>
+            {
+                dbData.push({
+                    text: t.data().text
+                });
+            });
+        return dbData;
     }
 }

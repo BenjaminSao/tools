@@ -8,7 +8,7 @@
               <h1 class="is-size-3">Add Data</h1>
               <div class="field">
                 <label class="label">Text</label>
-                <input type="text" class="input">
+                <input type="text" class="input" v-model="text">
               </div>
               <div class="field">
                 <div class="control">
@@ -19,7 +19,13 @@
               </div>
             </div>
           </div>
-          <div class="column"></div>
+          <!-- Reading Data -->
+          <div class="column">
+            <div class="box">
+              <h1 v-for="data of dbData">{{ data.text }}</h1>
+            </div>
+          </div>
+          <!-- Reading Data -->
         </div>
       </div>
     </section>
